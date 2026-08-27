@@ -13,6 +13,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class RepositoryContractTests(unittest.TestCase):
+    def test_community_health_documents_exist(self) -> None:
+        for name in ("CODE_OF_CONDUCT.md", "CONTRIBUTING.md", "GOVERNANCE.md", "SECURITY.md"):
+            with self.subTest(name=name):
+                path = ROOT / name
+                self.assertTrue(path.is_file())
+                self.assertGreater(len(path.read_text(encoding="utf-8").strip()), 100)
+
     def test_example_records_are_valid(self) -> None:
         self.assertEqual(validate_repository(ROOT), [])
 

@@ -2,7 +2,10 @@
 
 ToolCommons welcomes evidence, including evidence that a tool fails. A useful
 contribution is reproducible, explicit about its constraints, and careful about
-provenance.
+provenance. By participating, you agree to follow the
+[Code of Conduct](CODE_OF_CONDUCT.md) and the decision process described in
+[Governance](GOVERNANCE.md). Report sensitive vulnerabilities according to the
+[Security Policy](SECURITY.md), not through a public issue.
 
 ## Ways to contribute
 

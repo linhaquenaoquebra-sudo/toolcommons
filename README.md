@@ -90,6 +90,8 @@ evidence. Do not use the current receipts as security attestations.
 Contributions of capabilities, tasks, adapters, transformations, and reproducible
 failure receipts are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the
 evidence policy, fixture rules, development setup, and pull request checklist.
+Participation is also governed by the [Code of Conduct](CODE_OF_CONDUCT.md),
+[Security Policy](SECURITY.md), and [Governance](GOVERNANCE.md).
 
 ## Licence
 
