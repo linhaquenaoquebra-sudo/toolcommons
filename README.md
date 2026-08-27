@@ -85,6 +85,12 @@ a statistically rigorous performance ranking.
 This is a pre-alpha experiment. The schemas will evolve based on real execution
 evidence. Do not use the current receipts as security attestations.
 
+## Contributing
+
+Contributions of capabilities, tasks, adapters, transformations, and reproducible
+failure receipts are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the
+evidence policy, fixture rules, development setup, and pull request checklist.
+
 ## Licence
 
 Apache-2.0. Test fixtures and community submissions must declare their own
