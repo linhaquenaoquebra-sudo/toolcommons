@@ -1,0 +1,66 @@
+name: Report a reproducibility result
+description: Report that an existing task, capability, pipeline, or receipt behaves differently in another environment.
+title: "[Reproduction]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Contradictory results are evidence. Please preserve the generated receipt and describe the environment without including usernames, private paths, tokens, or secrets.
+
+  - type: input
+    id: task
+    attributes:
+      label: Task ID
+      placeholder: community.pdf.borderless-multiline-table.v1
+    validations:
+      required: true
+
+  - type: input
+    id: capability
+    attributes:
+      label: Capability and pipeline
+      placeholder: github.pdfplumber.pdfplumber + collapse-sparse-continuations.v1
+    validations:
+      required: true
+
+  - type: input
+    id: receipt
+    attributes:
+      label: Receipt path, hash, or link
+      description: Attach or link the immutable receipt when it is public-safe.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include operating system, architecture, Python version, and tool version.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: difference
+    attributes:
+      label: Observed difference
+      description: What result was expected, and what happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction commands
+      render: shell
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I reviewed the report, receipt, and logs and removed secrets and private information.
+          required: true

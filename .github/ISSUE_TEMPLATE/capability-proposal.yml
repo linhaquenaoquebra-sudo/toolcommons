@@ -1,0 +1,65 @@
+name: Propose a capability
+description: Suggest a tool, API, agent, or other resource for ToolCommons to describe and evaluate.
+title: "[Capability]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for expanding the commons. A capability proposal describes what a resource claims to do; it does not treat that claim as verified.
+
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      placeholder: "Example: Camelot"
+    validations:
+      required: true
+
+  - type: input
+    id: repository
+    attributes:
+      label: Upstream repository or canonical URL
+      placeholder: https://github.com/owner/project
+    validations:
+      required: true
+
+  - type: input
+    id: license
+    attributes:
+      label: Licence
+      description: Use an SPDX identifier when possible. Say "unknown" when it has not been verified.
+      placeholder: MIT
+    validations:
+      required: true
+
+  - type: textarea
+    id: claim
+    attributes:
+      label: Capability claim
+      description: State the concrete input, operation, and output without marketing language.
+      placeholder: Extract a table from a text-based PDF into structured rows and columns.
+    validations:
+      required: true
+
+  - type: textarea
+    id: value
+    attributes:
+      label: Community value
+      description: Who or what agent would use this, and for which task?
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Known constraints or risks
+      description: Include platform, network, privacy, cost, licence, or security limitations.
+
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: Contribution acknowledgement
+      options:
+        - label: I understand that upstream claims and ToolCommons execution evidence remain separate.
+          required: true

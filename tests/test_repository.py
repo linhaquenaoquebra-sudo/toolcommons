@@ -2,6 +2,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import yaml
+
 from toolcommons.cli import validate_repository
 from toolcommons.engine import assertions_pass, cell_accuracy
 from toolcommons.transforms import collapse_sparse_continuations
@@ -54,6 +56,26 @@ class RepositoryContractTests(unittest.TestCase):
             ["Account", "Segment", "Jan"],
             ["Blue Harbor", "Small\nbusiness", "28"],
         ])
+
+    def test_github_yaml_is_parseable(self) -> None:
+        paths = sorted((ROOT / ".github").rglob("*.yml"))
+        self.assertTrue(paths)
+        for path in paths:
+            with self.subTest(path=path.relative_to(ROOT)):
+                self.assertIsInstance(yaml.safe_load(path.read_text(encoding="utf-8")), dict)
+
+    def test_issue_forms_have_unique_field_ids(self) -> None:
+        directory = ROOT / ".github" / "ISSUE_TEMPLATE"
+        for path in sorted(directory.glob("*.yml")):
+            if path.name == "config.yml":
+                continue
+            with self.subTest(path=path.name):
+                form = yaml.safe_load(path.read_text(encoding="utf-8"))
+                self.assertTrue(form.get("name"))
+                self.assertTrue(form.get("description"))
+                self.assertIsInstance(form.get("body"), list)
+                ids = [item["id"] for item in form["body"] if "id" in item]
+                self.assertEqual(len(ids), len(set(ids)))
 
 
 if __name__ == "__main__":

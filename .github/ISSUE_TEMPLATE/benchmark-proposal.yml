@@ -1,0 +1,72 @@
+name: Propose a benchmark task
+description: Suggest a reproducible problem, fixture, expected result, and measurable assertions.
+title: "[Benchmark]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A good benchmark is independent of the tool that will attempt it. Public-safe fixtures, expected outputs, constraints, and provenance are all part of the task.
+
+  - type: input
+    id: objective
+    attributes:
+      label: Task objective
+      placeholder: Extract a borderless table with multiline cells into CSV.
+    validations:
+      required: true
+
+  - type: textarea
+    id: input
+    attributes:
+      label: Proposed input fixture
+      description: Describe the input and provide a public source when one already exists. Do not attach private data.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected output
+      description: Explain the canonical result and how it can be checked.
+    validations:
+      required: true
+
+  - type: textarea
+    id: assertions
+    attributes:
+      label: Assertions and constraints
+      description: Include measurable correctness criteria plus time, memory, network, or platform constraints.
+    validations:
+      required: true
+
+  - type: input
+    id: provenance
+    attributes:
+      label: Fixture provenance and licence
+      placeholder: Created by me and released under CC0-1.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: boundary
+    attributes:
+      label: Capability boundary
+      description: What is this task intended to evaluate?
+      options:
+        - End-to-end discovery and execution
+        - Execution with a known input region or target
+        - Transformation of an existing result
+        - Other clearly described boundary
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Fixture safety
+      options:
+        - label: The proposed fixture contains no secret, personal, confidential, or unlawfully redistributed data.
+          required: true
+        - label: I can document the fixture's creator and licence.
+          required: true

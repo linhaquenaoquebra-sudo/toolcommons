@@ -109,6 +109,11 @@ GitHub runs the same validation on Linux and Windows with Python 3.11 and 3.12.
 A pull request should not be merged while one of these checks is failing without a
 documented reason.
 
+Before writing code, use the repository's structured issue forms to propose a
+capability or benchmark, report a reproduction difference, or describe a bug. The
+pull request template then carries the same provenance and evidence questions into
+review.
+
 ## Licence
 
 By contributing, you agree that your contribution is provided under the
