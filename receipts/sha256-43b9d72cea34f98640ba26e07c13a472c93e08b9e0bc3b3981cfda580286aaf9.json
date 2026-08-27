@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "0.1",
+  "id": "receipt.43b9d72cea34f98640ba26e0",
+  "capabilityId": "github.pymupdf.pymupdf",
+  "taskId": "community.pdf.borderless-multiline-table.v1",
+  "status": "failed",
+  "recordedAt": "2026-08-27T22:52:22.473086+00:00",
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "architecture": "AMD64",
+    "python": "3.12.13"
+  },
+  "execution": {
+    "toolVersion": "1.26.7",
+    "durationSeconds": 3.7908,
+    "networkUsed": false
+  },
+  "metrics": {
+    "cellAccuracy": 0.0,
+    "rowCount": 23,
+    "columnCount": 22,
+    "peakMemoryMiB": 14.548
+  },
+  "artifacts": [
+    {
+      "role": "input",
+      "path": "fixtures/pdf-borderless-multiline/input.pdf",
+      "sha256": "a15cb269ab5ffe800c5b1685875599f722324e54804f3abbce8a5fda2c476a12"
+    },
+    {
+      "role": "output",
+      "path": "receipts/artifacts/sha256-65cb37fea44a2a930f811847b2099a7b7a8ec98f9bb12f0648bd9a26f19fba92.csv",
+      "sha256": "65cb37fea44a2a930f811847b2099a7b7a8ec98f9bb12f0648bd9a26f19fba92"
+    }
+  ],
+  "notes": "Executed by the pymupdf adapter using default detection with text-alignment fallback."
+}

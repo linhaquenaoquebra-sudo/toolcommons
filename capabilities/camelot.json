@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "0.1",
+  "id": "github.camelot-dev.camelot",
+  "name": "Camelot",
+  "description": "Extracts tables from text-based PDF documents using ruled-line and whitespace parsers.",
+  "source": {"repository": "https://github.com/camelot-dev/camelot", "revision": "1.x-2.x"},
+  "license": "MIT",
+  "interfaces": ["python", "cli"],
+  "runtime": {"platforms": ["windows", "linux", "macos"], "networkRequired": false},
+  "claims": [{
+    "id": "extract.digital-pdf-table",
+    "statement": "Extract ruled or borderless tables from text-based PDFs into structured rows and columns.",
+    "inputMediaTypes": ["application/pdf"],
+    "outputMediaTypes": ["text/csv", "application/json"]
+  }]
+}

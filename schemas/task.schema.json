@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://toolcommons.org/schemas/task.schema.json",
+  "title": "ToolCommons task",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "title", "objective", "input", "expected", "constraints", "assertions", "provenance"],
+  "properties": {
+    "schemaVersion": {"const": "0.1"},
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$"},
+    "title": {"type": "string", "minLength": 1},
+    "objective": {"type": "string", "minLength": 1},
+    "input": {"$ref": "#/$defs/artifact"},
+    "expected": {"$ref": "#/$defs/artifact"},
+    "constraints": {
+      "type": "object", "additionalProperties": false,
+      "required": ["networkAllowed", "maxDurationSeconds", "maxMemoryMiB"],
+      "properties": {
+        "networkAllowed": {"type": "boolean"},
+        "maxDurationSeconds": {"type": "number", "exclusiveMinimum": 0},
+        "maxMemoryMiB": {"type": "integer", "minimum": 1}
+      }
+    },
+    "assertions": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["metric", "operator", "value"],
+        "properties": {
+          "metric": {"enum": ["cellAccuracy", "rowCount", "columnCount"]},
+          "operator": {"enum": ["eq", "gte"]},
+          "value": {"type": "number"}
+        }
+      }
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["creator", "license"],
+      "properties": {"creator": {"type": "string", "minLength": 1}, "license": {"type": "string", "minLength": 1}}
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "mediaType", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "mediaType": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "pageIndex": {"type": "integer", "minimum": 0},
+        "tableStyle": {"enum": ["ruled", "borderless"]},
+        "bboxPoints": {
+          "type": "array", "minItems": 4, "maxItems": 4,
+          "items": {"type": "number", "minimum": 0}
+        }
+      }
+    }
+  }
+}

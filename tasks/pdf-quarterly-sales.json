@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "0.1",
+  "id": "community.pdf.digital-table.quarterly-sales.v1",
+  "title": "Extract a ruled quarterly sales table from a digital PDF",
+  "objective": "Convert the table in the supplied digital PDF into CSV while preserving every header and value.",
+  "input": {
+    "path": "fixtures/pdf-quarterly-sales/input.pdf",
+    "mediaType": "application/pdf",
+    "sha256": "e72d493f30956a50aba5a05e36b8e500a842a3031932a8705cfaba528dce4a2b",
+    "pageIndex": 0,
+    "tableStyle": "ruled"
+  },
+  "expected": {
+    "path": "fixtures/pdf-quarterly-sales/expected.csv",
+    "mediaType": "text/csv",
+    "sha256": "3034ee359a702a99d47b7ad6ba05df0bee2805359bca0bf38891fa4bfed84c1b"
+  },
+  "constraints": {
+    "networkAllowed": false,
+    "maxDurationSeconds": 30,
+    "maxMemoryMiB": 512
+  },
+  "assertions": [
+    {"metric": "cellAccuracy", "operator": "gte", "value": 1.0},
+    {"metric": "rowCount", "operator": "eq", "value": 5},
+    {"metric": "columnCount", "operator": "eq", "value": 6}
+  ],
+  "provenance": {
+    "creator": "ToolCommons community fixture",
+    "license": "CC0-1.0"
+  }
+}

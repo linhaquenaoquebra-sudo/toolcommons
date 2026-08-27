@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "0.1",
+  "id": "receipt.bc2a985f15935249a8c37700",
+  "capabilityId": "github.pdfplumber.pdfplumber",
+  "taskId": "community.pdf.borderless-multiline-table.v1",
+  "status": "passed",
+  "pipelineId": "collapse-sparse-continuations.v1",
+  "transformations": [
+    "collapse-sparse-continuations.v1"
+  ],
+  "recordedAt": "2026-08-27T22:59:06.488193+00:00",
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "architecture": "AMD64",
+    "python": "3.12.13"
+  },
+  "execution": {
+    "toolVersion": "0.11.10",
+    "durationSeconds": 2.281452,
+    "networkUsed": false
+  },
+  "metrics": {
+    "cellAccuracy": 1.0,
+    "rowCount": 5,
+    "columnCount": 6,
+    "peakMemoryMiB": 6.514
+  },
+  "artifacts": [
+    {
+      "role": "input",
+      "path": "fixtures/pdf-borderless-multiline/input.pdf",
+      "sha256": "a15cb269ab5ffe800c5b1685875599f722324e54804f3abbce8a5fda2c476a12"
+    },
+    {
+      "role": "intermediate",
+      "path": "receipts/artifacts/sha256-64fabd874d0d3d615d0b91241839cc6ff03fee19f127ad37b0165c263fdd964c.csv",
+      "sha256": "64fabd874d0d3d615d0b91241839cc6ff03fee19f127ad37b0165c263fdd964c"
+    },
+    {
+      "role": "output",
+      "path": "receipts/artifacts/sha256-65791570e83a886769ac07b7a18f44dac63f3701220a656114e3fdce83a882b3.csv",
+      "sha256": "65791570e83a886769ac07b7a18f44dac63f3701220a656114e3fdce83a882b3"
+    }
+  ],
+  "notes": "Executed by the pdfplumber adapter using default detection with text-alignment fallback."
+}

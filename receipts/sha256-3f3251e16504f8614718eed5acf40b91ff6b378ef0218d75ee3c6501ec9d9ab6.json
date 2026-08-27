@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "0.1",
+  "id": "receipt.3f3251e16504f8614718eed5",
+  "capabilityId": "github.camelot-dev.camelot",
+  "taskId": "community.pdf.digital-table.quarterly-sales.v1",
+  "status": "passed",
+  "pipelineId": "raw",
+  "transformations": [],
+  "recordedAt": "2026-08-27T23:04:26.798710+00:00",
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "architecture": "AMD64",
+    "python": "3.12.13"
+  },
+  "execution": {
+    "toolVersion": "2.0.0",
+    "durationSeconds": 19.840397,
+    "networkUsed": false
+  },
+  "metrics": {
+    "cellAccuracy": 1.0,
+    "rowCount": 5,
+    "columnCount": 6,
+    "peakMemoryMiB": 117.227
+  },
+  "artifacts": [
+    {
+      "role": "input",
+      "path": "fixtures/pdf-quarterly-sales/input.pdf",
+      "sha256": "e72d493f30956a50aba5a05e36b8e500a842a3031932a8705cfaba528dce4a2b"
+    },
+    {
+      "role": "output",
+      "path": "receipts/artifacts/sha256-3034ee359a702a99d47b7ad6ba05df0bee2805359bca0bf38891fa4bfed84c1b.csv",
+      "sha256": "3034ee359a702a99d47b7ad6ba05df0bee2805359bca0bf38891fa4bfed84c1b"
+    }
+  ],
+  "notes": "Executed by the camelot adapter using default detection with text-alignment fallback."
+}

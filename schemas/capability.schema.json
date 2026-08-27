@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://toolcommons.org/schemas/capability.schema.json",
+  "title": "ToolCommons capability",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "name", "description", "source", "license", "interfaces", "runtime", "claims"],
+  "properties": {
+    "schemaVersion": {"const": "0.1"},
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$"},
+    "name": {"type": "string", "minLength": 1},
+    "description": {"type": "string", "minLength": 1},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "revision"],
+      "properties": {"repository": {"type": "string", "format": "uri"}, "revision": {"type": "string", "minLength": 1}}
+    },
+    "license": {"type": "string", "minLength": 1},
+    "interfaces": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["cli", "python", "http", "mcp"]}},
+    "runtime": {
+      "type": "object", "additionalProperties": false,
+      "required": ["platforms", "networkRequired"],
+      "properties": {
+        "platforms": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["windows", "linux", "macos"]}},
+        "networkRequired": {"type": "boolean"}
+      }
+    },
+    "claims": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "statement", "inputMediaTypes", "outputMediaTypes"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$"},
+          "statement": {"type": "string", "minLength": 1},
+          "inputMediaTypes": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "outputMediaTypes": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

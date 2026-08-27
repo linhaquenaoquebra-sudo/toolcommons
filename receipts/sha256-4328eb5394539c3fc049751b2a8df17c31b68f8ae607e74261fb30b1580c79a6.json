@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "0.1",
+  "id": "receipt.4328eb5394539c3fc049751b",
+  "capabilityId": "github.pdfplumber.pdfplumber",
+  "taskId": "community.pdf.digital-table.quarterly-sales.v1",
+  "status": "passed",
+  "recordedAt": "2026-08-27T22:44:46.293180+00:00",
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "architecture": "AMD64",
+    "python": "3.12.13"
+  },
+  "execution": {
+    "toolVersion": "0.11.9",
+    "durationSeconds": 1.931987,
+    "networkUsed": false
+  },
+  "metrics": {
+    "cellAccuracy": 1.0,
+    "rowCount": 5,
+    "columnCount": 6,
+    "peakMemoryMiB": 6.082
+  },
+  "artifacts": [
+    {
+      "role": "input",
+      "path": "fixtures/pdf-quarterly-sales/input.pdf",
+      "sha256": "e72d493f30956a50aba5a05e36b8e500a842a3031932a8705cfaba528dce4a2b"
+    },
+    {
+      "role": "output",
+      "path": "receipts/artifacts/sha256-3034ee359a702a99d47b7ad6ba05df0bee2805359bca0bf38891fa4bfed84c1b.csv",
+      "sha256": "3034ee359a702a99d47b7ad6ba05df0bee2805359bca0bf38891fa4bfed84c1b"
+    }
+  ],
+  "notes": "Executed by the pdfplumber adapter with default table settings."
+}

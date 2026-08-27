@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "0.1",
+  "id": "github.pdfplumber.pdfplumber",
+  "name": "pdfplumber",
+  "description": "Extracts text, tables, and geometry from digital PDF documents.",
+  "source": {
+    "repository": "https://github.com/jsvine/pdfplumber",
+    "revision": "0.11.x"
+  },
+  "license": "MIT",
+  "interfaces": ["python", "cli"],
+  "runtime": {
+    "platforms": ["windows", "linux", "macos"],
+    "networkRequired": false
+  },
+  "claims": [
+    {
+      "id": "extract.digital-pdf-table",
+      "statement": "Extract a table from a digital PDF into structured rows and columns.",
+      "inputMediaTypes": ["application/pdf"],
+      "outputMediaTypes": ["text/csv", "application/json"]
+    }
+  ]
+}

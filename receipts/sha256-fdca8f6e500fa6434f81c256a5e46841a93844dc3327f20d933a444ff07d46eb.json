@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "0.1",
+  "id": "receipt.fdca8f6e500fa6434f81c256",
+  "capabilityId": "github.camelot-dev.camelot",
+  "taskId": "community.pdf.borderless-multiline-table.v1",
+  "status": "passed",
+  "pipelineId": "collapse-sparse-continuations.v1",
+  "transformations": [
+    "collapse-sparse-continuations.v1"
+  ],
+  "recordedAt": "2026-08-27T23:04:41.506036+00:00",
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "architecture": "AMD64",
+    "python": "3.12.13"
+  },
+  "execution": {
+    "toolVersion": "2.0.0",
+    "durationSeconds": 6.762617,
+    "networkUsed": false
+  },
+  "metrics": {
+    "cellAccuracy": 1.0,
+    "rowCount": 5,
+    "columnCount": 6,
+    "peakMemoryMiB": 50.187
+  },
+  "artifacts": [
+    {
+      "role": "input",
+      "path": "fixtures/pdf-borderless-multiline/input.pdf",
+      "sha256": "a15cb269ab5ffe800c5b1685875599f722324e54804f3abbce8a5fda2c476a12"
+    },
+    {
+      "role": "intermediate",
+      "path": "receipts/artifacts/sha256-1711b6ccfede5effa99cbb0213919930b2b9d0614de05d83660391799be67f99.csv",
+      "sha256": "1711b6ccfede5effa99cbb0213919930b2b9d0614de05d83660391799be67f99"
+    },
+    {
+      "role": "output",
+      "path": "receipts/artifacts/sha256-65791570e83a886769ac07b7a18f44dac63f3701220a656114e3fdce83a882b3.csv",
+      "sha256": "65791570e83a886769ac07b7a18f44dac63f3701220a656114e3fdce83a882b3"
+    }
+  ],
+  "notes": "Executed by the camelot adapter using default detection with text-alignment fallback."
+}

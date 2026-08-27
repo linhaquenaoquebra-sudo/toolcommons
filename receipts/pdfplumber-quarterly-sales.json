@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "0.1",
+  "id": "local.pdfplumber.quarterly-sales.v1",
+  "capabilityId": "github.pdfplumber.pdfplumber",
+  "taskId": "community.pdf.digital-table.quarterly-sales.v1",
+  "status": "passed",
+  "recordedAt": "2026-08-27T15:10:29.719885+00:00",
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "architecture": "AMD64",
+    "python": "3.12.13"
+  },
+  "execution": {
+    "toolVersion": "0.11.9",
+    "durationSeconds": 0.02019,
+    "networkUsed": false
+  },
+  "metrics": {
+    "cellAccuracy": 1.0,
+    "rowCount": 5,
+    "columnCount": 6
+  },
+  "artifacts": [
+    {
+      "role": "input",
+      "path": "fixtures/pdf-quarterly-sales/input.pdf",
+      "sha256": "e72d493f30956a50aba5a05e36b8e500a842a3031932a8705cfaba528dce4a2b"
+    },
+    {
+      "role": "output",
+      "path": "receipts/artifacts/pdfplumber-quarterly-sales.csv",
+      "sha256": "3034ee359a702a99d47b7ad6ba05df0bee2805359bca0bf38891fa4bfed84c1b"
+    }
+  ],
+  "notes": "Reference run using pdfplumber default table extraction settings."
+}

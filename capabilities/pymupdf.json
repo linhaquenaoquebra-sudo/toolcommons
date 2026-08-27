@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "0.1",
+  "id": "github.pymupdf.pymupdf",
+  "name": "PyMuPDF",
+  "description": "High-performance Python library for extracting and manipulating PDF content.",
+  "source": {"repository": "https://github.com/pymupdf/PyMuPDF", "revision": "1.26.x"},
+  "license": "AGPL-3.0-or-later OR commercial",
+  "interfaces": ["python"],
+  "runtime": {"platforms": ["windows", "linux", "macos"], "networkRequired": false},
+  "claims": [{
+    "id": "extract.digital-pdf-table",
+    "statement": "Detect and extract a table from a digital PDF into structured rows and columns.",
+    "inputMediaTypes": ["application/pdf"],
+    "outputMediaTypes": ["text/csv", "application/json"]
+  }]
+}

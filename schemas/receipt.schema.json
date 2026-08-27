@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://toolcommons.org/schemas/receipt.schema.json",
+  "title": "ToolCommons execution receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "capabilityId", "taskId", "status", "recordedAt", "environment", "execution", "metrics", "artifacts"],
+  "properties": {
+    "schemaVersion": {"const": "0.1"},
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$"},
+    "capabilityId": {"type": "string", "minLength": 1},
+    "taskId": {"type": "string", "minLength": 1},
+    "status": {"enum": ["passed", "failed", "error"]},
+    "pipelineId": {"type": "string", "minLength": 1},
+    "transformations": {
+      "type": "array", "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "recordedAt": {"type": "string", "format": "date-time"},
+    "environment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["os", "architecture", "python"],
+      "properties": {"os": {"type": "string"}, "architecture": {"type": "string"}, "python": {"type": "string"}}
+    },
+    "execution": {
+      "type": "object", "additionalProperties": false,
+      "required": ["toolVersion", "durationSeconds", "networkUsed"],
+      "properties": {"toolVersion": {"type": "string"}, "durationSeconds": {"type": "number", "minimum": 0}, "networkUsed": {"type": "boolean"}}
+    },
+    "metrics": {
+      "type": "object", "additionalProperties": {"type": "number"}
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["role", "path", "sha256"],
+        "properties": {"role": {"enum": ["input", "intermediate", "output", "log"]}, "path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+      }
+    },
+    "notes": {"type": "string"}
+  }
+}

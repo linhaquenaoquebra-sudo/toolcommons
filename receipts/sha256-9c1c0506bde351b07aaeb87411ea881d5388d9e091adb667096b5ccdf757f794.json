@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "0.1",
+  "id": "receipt.9c1c0506bde351b07aaeb874",
+  "capabilityId": "github.pdfplumber.pdfplumber",
+  "taskId": "community.pdf.borderless-multiline-table.v1",
+  "status": "error",
+  "recordedAt": "2026-08-27T22:51:36.890393+00:00",
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "architecture": "AMD64",
+    "python": "3.12.13"
+  },
+  "execution": {
+    "toolVersion": "0.11.10",
+    "durationSeconds": 0.892734,
+    "networkUsed": false
+  },
+  "metrics": {
+    "cellAccuracy": 0.0,
+    "rowCount": 0,
+    "columnCount": 0,
+    "peakMemoryMiB": 6.315
+  },
+  "artifacts": [
+    {
+      "role": "input",
+      "path": "fixtures/pdf-borderless-multiline/input.pdf",
+      "sha256": "a15cb269ab5ffe800c5b1685875599f722324e54804f3abbce8a5fda2c476a12"
+    },
+    {
+      "role": "output",
+      "path": "receipts/artifacts/sha256-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.csv",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "notes": "RuntimeError: pdfplumber detected no table"
+}
