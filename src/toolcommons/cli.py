@@ -8,6 +8,7 @@ from typing import Any
 
 from .adapters import get_adapter
 from .engine import comparison_markdown, latest_receipts, run
+from .report import build_manifest, manifest_json, manifest_markdown
 from .transforms import get_transform
 
 try:
@@ -94,12 +95,27 @@ def build_parser() -> argparse.ArgumentParser:
     compare_parser.add_argument("task_id")
     compare_parser.add_argument("--root", default=".", type=Path)
     compare_parser.add_argument("--output", type=Path)
+    report_parser = subparsers.add_parser("report")
+    report_parser.add_argument("root", nargs="?", default=".", type=Path)
+    report_parser.add_argument("--format", choices=("markdown", "json"), default="markdown")
+    report_parser.add_argument("--output", type=Path)
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     root = args.root.resolve()
+    if args.command == "report":
+        manifest = build_manifest(root)
+        report = manifest_json(manifest) if args.format == "json" else manifest_markdown(manifest)
+        if args.output:
+            output = args.output if args.output.is_absolute() else root / args.output
+            output.parent.mkdir(parents=True, exist_ok=True)
+            output.write_text(report, encoding="utf-8")
+            print(f"Saved to {output.relative_to(root)}")
+        else:
+            print(report, end="")
+        return 0
     if args.command == "run":
         exit_code = 0
         transforms = [get_transform(name) for name in args.transforms]

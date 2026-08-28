@@ -1,0 +1,416 @@
+{
+  "capabilities": [
+    {
+      "claims": [
+        {
+          "id": "extract.digital-pdf-table",
+          "inputMediaTypes": [
+            "application/pdf"
+          ],
+          "outputMediaTypes": [
+            "text/csv",
+            "application/json"
+          ],
+          "statement": "Extract ruled or borderless tables from text-based PDFs into structured rows and columns."
+        }
+      ],
+      "description": "Extracts tables from text-based PDF documents using ruled-line and whitespace parsers.",
+      "id": "github.camelot-dev.camelot",
+      "interfaces": [
+        "cli",
+        "python"
+      ],
+      "license": "MIT",
+      "name": "Camelot",
+      "networkRequired": false,
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "repository": "https://github.com/camelot-dev/camelot",
+      "revision": "1.x-2.x"
+    },
+    {
+      "claims": [
+        {
+          "id": "extract.digital-pdf-table",
+          "inputMediaTypes": [
+            "application/pdf"
+          ],
+          "outputMediaTypes": [
+            "text/csv",
+            "application/json"
+          ],
+          "statement": "Extract a table from a digital PDF into structured rows and columns."
+        }
+      ],
+      "description": "Extracts text, tables, and geometry from digital PDF documents.",
+      "id": "github.pdfplumber.pdfplumber",
+      "interfaces": [
+        "cli",
+        "python"
+      ],
+      "license": "MIT",
+      "name": "pdfplumber",
+      "networkRequired": false,
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "repository": "https://github.com/jsvine/pdfplumber",
+      "revision": "0.11.x"
+    },
+    {
+      "claims": [
+        {
+          "id": "extract.digital-pdf-table",
+          "inputMediaTypes": [
+            "application/pdf"
+          ],
+          "outputMediaTypes": [
+            "text/csv",
+            "application/json"
+          ],
+          "statement": "Detect and extract a table from a digital PDF into structured rows and columns."
+        }
+      ],
+      "description": "High-performance Python library for extracting and manipulating PDF content.",
+      "id": "github.pymupdf.pymupdf",
+      "interfaces": [
+        "python"
+      ],
+      "license": "AGPL-3.0-or-later OR commercial",
+      "name": "PyMuPDF",
+      "networkRequired": false,
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "repository": "https://github.com/pymupdf/PyMuPDF",
+      "revision": "1.26.x"
+    }
+  ],
+  "kind": "toolcommons.benchmark-manifest",
+  "results": [
+    {
+      "capabilityId": "github.camelot-dev.camelot",
+      "durationSeconds": 5.546448,
+      "environment": {
+        "architecture": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.13"
+      },
+      "metrics": {
+        "cellAccuracy": 1.0,
+        "columnCount": 6,
+        "peakMemoryMiB": 50.187,
+        "rowCount": 5
+      },
+      "networkUsed": false,
+      "notes": "Executed by the camelot adapter using default detection with text-alignment fallback.",
+      "pipelineId": "collapse-sparse-continuations.v1",
+      "receiptPath": "receipts/sha256-e432d7cb7a0a4f517b0b793f08bec4b900b665fc803454cfe6f92fc73fb6c457.json",
+      "recordedAt": "2026-08-27T23:04:55.950600+00:00",
+      "status": "passed",
+      "taskId": "community.pdf.borderless-multiline-table.v1",
+      "toolVersion": "2.0.0",
+      "transformations": [
+        "collapse-sparse-continuations.v1"
+      ]
+    },
+    {
+      "capabilityId": "github.camelot-dev.camelot",
+      "durationSeconds": 5.101431,
+      "environment": {
+        "architecture": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.13"
+      },
+      "metrics": {
+        "cellAccuracy": 0.222222,
+        "columnCount": 6,
+        "peakMemoryMiB": 50.186,
+        "rowCount": 9
+      },
+      "networkUsed": false,
+      "notes": "Executed by the camelot adapter using default detection with text-alignment fallback.",
+      "pipelineId": "raw",
+      "receiptPath": "receipts/sha256-61e7b15e4e2792d452d117f808909dfc5ec8d125af474c59374dce9ea44e800f.json",
+      "recordedAt": "2026-08-27T23:04:32.548248+00:00",
+      "status": "failed",
+      "taskId": "community.pdf.borderless-multiline-table.v1",
+      "toolVersion": "2.0.0",
+      "transformations": []
+    },
+    {
+      "capabilityId": "github.pdfplumber.pdfplumber",
+      "durationSeconds": 2.281452,
+      "environment": {
+        "architecture": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.13"
+      },
+      "metrics": {
+        "cellAccuracy": 1.0,
+        "columnCount": 6,
+        "peakMemoryMiB": 6.514,
+        "rowCount": 5
+      },
+      "networkUsed": false,
+      "notes": "Executed by the pdfplumber adapter using default detection with text-alignment fallback.",
+      "pipelineId": "collapse-sparse-continuations.v1",
+      "receiptPath": "receipts/sha256-bc2a985f15935249a8c377001fcf7fda230442dbf3f01faacc0060a4d2b93b5d.json",
+      "recordedAt": "2026-08-27T22:59:06.488193+00:00",
+      "status": "passed",
+      "taskId": "community.pdf.borderless-multiline-table.v1",
+      "toolVersion": "0.11.10",
+      "transformations": [
+        "collapse-sparse-continuations.v1"
+      ]
+    },
+    {
+      "capabilityId": "github.pdfplumber.pdfplumber",
+      "durationSeconds": 0.699833,
+      "environment": {
+        "architecture": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.13"
+      },
+      "metrics": {
+        "cellAccuracy": 0.066667,
+        "columnCount": 6,
+        "peakMemoryMiB": 6.511,
+        "rowCount": 15
+      },
+      "networkUsed": false,
+      "notes": "Executed by the pdfplumber adapter using default detection with text-alignment fallback.",
+      "pipelineId": "raw",
+      "receiptPath": "receipts/sha256-827a739faa7dec78f81d73836414ff1c312c760f1c61b5e730996a0a2f66eed0.json",
+      "recordedAt": "2026-08-27T22:53:18.213668+00:00",
+      "status": "failed",
+      "taskId": "community.pdf.borderless-multiline-table.v1",
+      "toolVersion": "0.11.10",
+      "transformations": []
+    },
+    {
+      "capabilityId": "github.pymupdf.pymupdf",
+      "durationSeconds": 4.191568,
+      "environment": {
+        "architecture": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.13"
+      },
+      "metrics": {
+        "cellAccuracy": 1.0,
+        "columnCount": 6,
+        "peakMemoryMiB": 14.01,
+        "rowCount": 5
+      },
+      "networkUsed": false,
+      "notes": "Executed by the pymupdf adapter using default detection with text-alignment fallback.",
+      "pipelineId": "collapse-sparse-continuations.v1",
+      "receiptPath": "receipts/sha256-2c7e9ee1d6e898d0a730b2686a782bd8e178e1ea752b7bc877209e0602e42203.json",
+      "recordedAt": "2026-08-27T22:59:10.958592+00:00",
+      "status": "passed",
+      "taskId": "community.pdf.borderless-multiline-table.v1",
+      "toolVersion": "1.26.7",
+      "transformations": [
+        "collapse-sparse-continuations.v1"
+      ]
+    },
+    {
+      "capabilityId": "github.pymupdf.pymupdf",
+      "durationSeconds": 2.945756,
+      "environment": {
+        "architecture": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.13"
+      },
+      "metrics": {
+        "cellAccuracy": 0.066667,
+        "columnCount": 6,
+        "peakMemoryMiB": 14.018,
+        "rowCount": 15
+      },
+      "networkUsed": false,
+      "notes": "Executed by the pymupdf adapter using default detection with text-alignment fallback.",
+      "pipelineId": "raw",
+      "receiptPath": "receipts/sha256-aae7bc39b870d61ba42d5be93a58dcf2df36e3c5ae5d6b47a5184f8ea42419d7.json",
+      "recordedAt": "2026-08-27T22:53:21.384992+00:00",
+      "status": "failed",
+      "taskId": "community.pdf.borderless-multiline-table.v1",
+      "toolVersion": "1.26.7",
+      "transformations": []
+    },
+    {
+      "capabilityId": "github.camelot-dev.camelot",
+      "durationSeconds": 19.840397,
+      "environment": {
+        "architecture": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.13"
+      },
+      "metrics": {
+        "cellAccuracy": 1.0,
+        "columnCount": 6,
+        "peakMemoryMiB": 117.227,
+        "rowCount": 5
+      },
+      "networkUsed": false,
+      "notes": "Executed by the camelot adapter using default detection with text-alignment fallback.",
+      "pipelineId": "raw",
+      "receiptPath": "receipts/sha256-3f3251e16504f8614718eed5acf40b91ff6b378ef0218d75ee3c6501ec9d9ab6.json",
+      "recordedAt": "2026-08-27T23:04:26.798710+00:00",
+      "status": "passed",
+      "taskId": "community.pdf.digital-table.quarterly-sales.v1",
+      "toolVersion": "2.0.0",
+      "transformations": []
+    },
+    {
+      "capabilityId": "github.pdfplumber.pdfplumber",
+      "durationSeconds": 1.675453,
+      "environment": {
+        "architecture": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.13"
+      },
+      "metrics": {
+        "cellAccuracy": 1.0,
+        "columnCount": 6,
+        "peakMemoryMiB": 6.047,
+        "rowCount": 5
+      },
+      "networkUsed": false,
+      "notes": "Executed by the pdfplumber adapter with default table settings.",
+      "pipelineId": "raw",
+      "receiptPath": "receipts/sha256-ab24f5f0a40deb97a2cc06b866b7baf0a3f50a4e90ea58da703ab68617f8438a.json",
+      "recordedAt": "2026-08-27T22:47:44.555482+00:00",
+      "status": "passed",
+      "taskId": "community.pdf.digital-table.quarterly-sales.v1",
+      "toolVersion": "0.11.10",
+      "transformations": []
+    },
+    {
+      "capabilityId": "github.pymupdf.pymupdf",
+      "durationSeconds": 3.305992,
+      "environment": {
+        "architecture": "AMD64",
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.13"
+      },
+      "metrics": {
+        "cellAccuracy": 1.0,
+        "columnCount": 6,
+        "peakMemoryMiB": 14.092,
+        "rowCount": 5
+      },
+      "networkUsed": false,
+      "notes": "Executed by the pymupdf adapter with default table settings.",
+      "pipelineId": "raw",
+      "receiptPath": "receipts/sha256-e881a741754a50ee2e7575a589aec88e3e1bbcb0b545130cc9bf8f111922a938.json",
+      "recordedAt": "2026-08-27T22:47:48.137671+00:00",
+      "status": "passed",
+      "taskId": "community.pdf.digital-table.quarterly-sales.v1",
+      "toolVersion": "1.26.7",
+      "transformations": []
+    }
+  ],
+  "schemaVersion": "0.1",
+  "tasks": [
+    {
+      "assertions": [
+        {
+          "metric": "cellAccuracy",
+          "operator": "gte",
+          "value": 1.0
+        },
+        {
+          "metric": "rowCount",
+          "operator": "eq",
+          "value": 5
+        },
+        {
+          "metric": "columnCount",
+          "operator": "eq",
+          "value": 6
+        }
+      ],
+      "constraints": {
+        "maxDurationSeconds": 30,
+        "maxMemoryMiB": 512,
+        "networkAllowed": false
+      },
+      "expected": {
+        "mediaType": "text/csv",
+        "path": "fixtures/pdf-borderless-multiline/expected.csv",
+        "sha256": "65791570e83a886769ac07b7a18f44dac63f3701220a656114e3fdce83a882b3"
+      },
+      "id": "community.pdf.borderless-multiline-table.v1",
+      "input": {
+        "bboxPoints": [
+          65,
+          145,
+          510,
+          295
+        ],
+        "mediaType": "application/pdf",
+        "pageIndex": 0,
+        "path": "fixtures/pdf-borderless-multiline/input.pdf",
+        "sha256": "a15cb269ab5ffe800c5b1685875599f722324e54804f3abbce8a5fda2c476a12",
+        "tableStyle": "borderless"
+      },
+      "objective": "Convert the visually aligned table into CSV without absorbing surrounding prose and while preserving wrapped cell values.",
+      "provenance": {
+        "creator": "ToolCommons community fixture",
+        "license": "CC0-1.0"
+      },
+      "title": "Extract a borderless table with multiline cells from a digital PDF"
+    },
+    {
+      "assertions": [
+        {
+          "metric": "cellAccuracy",
+          "operator": "gte",
+          "value": 1.0
+        },
+        {
+          "metric": "rowCount",
+          "operator": "eq",
+          "value": 5
+        },
+        {
+          "metric": "columnCount",
+          "operator": "eq",
+          "value": 6
+        }
+      ],
+      "constraints": {
+        "maxDurationSeconds": 30,
+        "maxMemoryMiB": 512,
+        "networkAllowed": false
+      },
+      "expected": {
+        "mediaType": "text/csv",
+        "path": "fixtures/pdf-quarterly-sales/expected.csv",
+        "sha256": "3034ee359a702a99d47b7ad6ba05df0bee2805359bca0bf38891fa4bfed84c1b"
+      },
+      "id": "community.pdf.digital-table.quarterly-sales.v1",
+      "input": {
+        "mediaType": "application/pdf",
+        "pageIndex": 0,
+        "path": "fixtures/pdf-quarterly-sales/input.pdf",
+        "sha256": "e72d493f30956a50aba5a05e36b8e500a842a3031932a8705cfaba528dce4a2b",
+        "tableStyle": "ruled"
+      },
+      "objective": "Convert the table in the supplied digital PDF into CSV while preserving every header and value.",
+      "provenance": {
+        "creator": "ToolCommons community fixture",
+        "license": "CC0-1.0"
+      },
+      "title": "Extract a ruled quarterly sales table from a digital PDF"
+    }
+  ]
+}
