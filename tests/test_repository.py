@@ -7,12 +7,33 @@ import yaml
 from toolcommons.cli import validate_repository
 from toolcommons.engine import assertions_pass, cell_accuracy
 from toolcommons.transforms import collapse_sparse_continuations
+from toolcommons.report import build_manifest, manifest_json, manifest_markdown
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class RepositoryContractTests(unittest.TestCase):
+    def test_benchmark_manifest_is_deterministic_and_linked_to_receipts(self) -> None:
+        manifest = build_manifest(ROOT)
+        self.assertEqual(manifest["kind"], "toolcommons.benchmark-manifest")
+        self.assertEqual(len(manifest["capabilities"]), 3)
+        self.assertEqual(len(manifest["tasks"]), 2)
+        keys = [
+            (result["taskId"], result["capabilityId"], result["pipelineId"])
+            for result in manifest["results"]
+        ]
+        self.assertEqual(keys, sorted(set(keys)))
+        for result in manifest["results"]:
+            self.assertTrue((ROOT / result["receiptPath"]).is_file())
+        self.assertEqual(manifest_json(manifest), manifest_json(build_manifest(ROOT)))
+
+    def test_benchmark_manifest_markdown_exposes_evidence_and_limits(self) -> None:
+        report = manifest_markdown(build_manifest(ROOT))
+        self.assertIn("# ToolCommons benchmark manifest", report)
+        self.assertIn("[receipt](../receipts/sha256-", report)
+        self.assertIn("receipts are not security attestations", report)
+
     def test_community_health_documents_exist(self) -> None:
         for name in ("CODE_OF_CONDUCT.md", "CONTRIBUTING.md", "GOVERNANCE.md", "SECURITY.md"):
             with self.subTest(name=name):

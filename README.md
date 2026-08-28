@@ -80,6 +80,20 @@ The current timing is a single cold process measurement and peak memory uses
 Python allocation tracing. Results are useful evidence for this environment, not
 a statistically rigorous performance ranking.
 
+## Generate the benchmark manifest
+
+Create a stable overview for people and an equivalent machine-readable document
+for agents:
+
+```powershell
+.\.venv\Scripts\toolcommons.exe report --format markdown --output reports\benchmark-manifest.md
+.\.venv\Scripts\toolcommons.exe report --format json --output reports\benchmark-manifest.json
+```
+
+The manifest selects the latest receipt for every task–capability–pipeline
+combination and links back to the immutable source receipt. It does not turn a
+single execution into a universal ranking.
+
 ## Status
 
 This is a pre-alpha experiment. The schemas will evolve based on real execution
