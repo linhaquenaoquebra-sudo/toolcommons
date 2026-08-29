@@ -94,6 +94,17 @@ The manifest selects the latest receipt for every task–capability–pipeline
 combination and links back to the immutable source receipt. It does not turn a
 single execution into a universal ranking.
 
+## Run the multipage benchmark
+
+```powershell
+.\.venv\Scripts\toolcommons.exe run community.pdf.multipage-repeated-header.v1 --with pdfplumber --with pymupdf --with camelot
+.\.venv\Scripts\toolcommons.exe run community.pdf.multipage-repeated-header.v1 --with pdfplumber --with pymupdf --with camelot --transform drop-repeated-headers
+```
+
+The raw run preserves the repeated header extracted from every page. The declared
+transformation removes exact repetitions while retaining the first header and the
+original row order.
+
 ## Status
 
 This is a pre-alpha experiment. The schemas will evolve based on real execution

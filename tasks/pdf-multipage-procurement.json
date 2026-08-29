@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "0.1",
+  "id": "community.pdf.multipage-repeated-header.v1",
+  "title": "Extract a multipage procurement table with repeated headers",
+  "objective": "Combine a ruled table across three pages into one CSV, preserve row order, exclude surrounding report text, and retain the header exactly once.",
+  "input": {
+    "path": "fixtures/pdf-multipage-procurement/input.pdf",
+    "mediaType": "application/pdf",
+    "sha256": "805512e2f59822cf20c8185c71fb0d7390ed3714de264d91cec704bf95f3bea8",
+    "pageIndices": [0, 1, 2],
+    "tableStyle": "ruled",
+    "bboxPoints": [50, 105, 555, 290]
+  },
+  "expected": {
+    "path": "fixtures/pdf-multipage-procurement/expected.csv",
+    "mediaType": "text/csv",
+    "sha256": "b7b6e64620d9ec4d06341cccf9f41191ee0b079774a5b051e1220552d284aa83"
+  },
+  "constraints": {
+    "networkAllowed": false,
+    "maxDurationSeconds": 45,
+    "maxMemoryMiB": 512
+  },
+  "assertions": [
+    {"metric": "cellAccuracy", "operator": "gte", "value": 1.0},
+    {"metric": "rowCount", "operator": "eq", "value": 13},
+    {"metric": "columnCount", "operator": "eq", "value": 6}
+  ],
+  "provenance": {
+    "creator": "ToolCommons community fixture",
+    "license": "CC0-1.0"
+  }
+}
