@@ -67,8 +67,17 @@ def collapse_sparse_continuations(rows: Rows) -> Rows:
     return result
 
 
+def drop_repeated_headers(rows: Rows) -> Rows:
+    """Keep the first header and remove identical headers from later pages."""
+    if not rows:
+        return []
+    header = rows[0]
+    return [header, *(row for row in rows[1:] if row != header)]
+
+
 TRANSFORMS = {
     "collapse-multiline": Transform("collapse-sparse-continuations", "1", collapse_sparse_continuations),
+    "drop-repeated-headers": Transform("drop-repeated-headers", "1", drop_repeated_headers),
 }
 
 

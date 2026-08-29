@@ -6,7 +6,7 @@ import yaml
 
 from toolcommons.cli import validate_repository
 from toolcommons.engine import assertions_pass, cell_accuracy
-from toolcommons.transforms import collapse_sparse_continuations
+from toolcommons.transforms import collapse_sparse_continuations, drop_repeated_headers
 from toolcommons.report import build_manifest, manifest_json, manifest_markdown
 
 
@@ -18,7 +18,10 @@ class RepositoryContractTests(unittest.TestCase):
         manifest = build_manifest(ROOT)
         self.assertEqual(manifest["kind"], "toolcommons.benchmark-manifest")
         self.assertEqual(len(manifest["capabilities"]), 3)
-        self.assertEqual(len(manifest["tasks"]), 2)
+        self.assertIn(
+            "community.pdf.multipage-repeated-header.v1",
+            {task["id"] for task in manifest["tasks"]},
+        )
         keys = [
             (result["taskId"], result["capabilityId"], result["pipelineId"])
             for result in manifest["results"]
@@ -83,6 +86,19 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertEqual(collapse_sparse_continuations(rows), [
             ["Account", "Segment", "Jan"],
             ["Blue Harbor", "Small\nbusiness", "28"],
+        ])
+
+    def test_repeated_page_headers_are_removed_without_reordering_rows(self) -> None:
+        rows = [
+            ["Order", "Amount"],
+            ["PO-001", "10"],
+            ["Order", "Amount"],
+            ["PO-002", "20"],
+        ]
+        self.assertEqual(drop_repeated_headers(rows), [
+            ["Order", "Amount"],
+            ["PO-001", "10"],
+            ["PO-002", "20"],
         ])
 
     def test_github_yaml_is_parseable(self) -> None:

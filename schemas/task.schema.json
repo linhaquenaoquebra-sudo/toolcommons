@@ -48,6 +48,10 @@
         "mediaType": {"type": "string", "minLength": 1},
         "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
         "pageIndex": {"type": "integer", "minimum": 0},
+        "pageIndices": {
+          "type": "array", "minItems": 2, "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 0}
+        },
         "tableStyle": {"enum": ["ruled", "borderless"]},
         "bboxPoints": {
           "type": "array", "minItems": 4, "maxItems": 4,

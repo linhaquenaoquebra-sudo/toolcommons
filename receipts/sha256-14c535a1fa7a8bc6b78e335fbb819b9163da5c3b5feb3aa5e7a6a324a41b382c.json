@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "0.1",
+  "id": "receipt.14c535a1fa7a8bc6b78e335f",
+  "capabilityId": "github.pdfplumber.pdfplumber",
+  "taskId": "community.pdf.multipage-repeated-header.v1",
+  "status": "failed",
+  "pipelineId": "raw",
+  "transformations": [],
+  "recordedAt": "2026-08-28T23:41:34.397274+00:00",
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "architecture": "AMD64",
+    "python": "3.12.13"
+  },
+  "execution": {
+    "toolVersion": "0.11.10",
+    "durationSeconds": 1.747653,
+    "networkUsed": false
+  },
+  "metrics": {
+    "cellAccuracy": 0.333333,
+    "rowCount": 15,
+    "columnCount": 6,
+    "peakMemoryMiB": 8.893
+  },
+  "artifacts": [
+    {
+      "role": "input",
+      "path": "fixtures/pdf-multipage-procurement/input.pdf",
+      "sha256": "805512e2f59822cf20c8185c71fb0d7390ed3714de264d91cec704bf95f3bea8"
+    },
+    {
+      "role": "output",
+      "path": "receipts/artifacts/sha256-e518cd348187b98874d6c907184c0dea41d36ba377a998b640cba633955aa1b4.csv",
+      "sha256": "e518cd348187b98874d6c907184c0dea41d36ba377a998b640cba633955aa1b4"
+    }
+  ],
+  "notes": "Executed by the pdfplumber adapter using default detection with text-alignment fallback."
+}
